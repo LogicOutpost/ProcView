@@ -38,8 +38,6 @@
             this.pidPanel = new System.Windows.Forms.Panel();
             this.pidLabel = new System.Windows.Forms.Label();
             this.selectedPidLabel = new System.Windows.Forms.Label();
-            this.searchBar = new System.Windows.Forms.TextBox();
-            this.searchButton = new System.Windows.Forms.Button();
             this.VersionLabel = new System.Windows.Forms.Label();
             this.processesList = new System.Windows.Forms.ListBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -47,9 +45,20 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.memoryLabel = new System.Windows.Forms.Label();
             this.listPIDLabel = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.MonitorButton = new System.Windows.Forms.Button();
+            this.processesButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.menuListTitle = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.processesLabel.SuspendLayout();
             this.memoryPanel.SuspendLayout();
             this.pidPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // processesLabel
@@ -73,8 +82,9 @@
             this.numOfProcessesLabel.ForeColor = System.Drawing.Color.White;
             this.numOfProcessesLabel.Location = new System.Drawing.Point(68, 33);
             this.numOfProcessesLabel.Name = "numOfProcessesLabel";
-            this.numOfProcessesLabel.Size = new System.Drawing.Size(0, 26);
+            this.numOfProcessesLabel.Size = new System.Drawing.Size(24, 26);
             this.numOfProcessesLabel.TabIndex = 3;
+            this.numOfProcessesLabel.Text = "0";
             // 
             // totalProcessesLabel
             // 
@@ -160,32 +170,6 @@
             this.selectedPidLabel.TabIndex = 2;
             this.selectedPidLabel.Text = "Selected PID:";
             // 
-            // searchBar
-            // 
-            this.searchBar.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.searchBar.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchBar.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBar.ForeColor = System.Drawing.SystemColors.Window;
-            this.searchBar.Location = new System.Drawing.Point(12, 107);
-            this.searchBar.Multiline = true;
-            this.searchBar.Name = "searchBar";
-            this.searchBar.Size = new System.Drawing.Size(520, 31);
-            this.searchBar.TabIndex = 6;
-            // 
-            // searchButton
-            // 
-            this.searchButton.BackColor = System.Drawing.Color.DodgerBlue;
-            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchButton.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.ForeColor = System.Drawing.Color.White;
-            this.searchButton.Location = new System.Drawing.Point(559, 107);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(97, 31);
-            this.searchButton.TabIndex = 7;
-            this.searchButton.Text = "Search";
-            this.searchButton.UseVisualStyleBackColor = false;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-            // 
             // VersionLabel
             // 
             this.VersionLabel.AutoSize = true;
@@ -196,7 +180,7 @@
             this.VersionLabel.Name = "VersionLabel";
             this.VersionLabel.Size = new System.Drawing.Size(103, 19);
             this.VersionLabel.TabIndex = 4;
-            this.VersionLabel.Text = "ProcView v1.0";
+            this.VersionLabel.Text = "ProcView v1.1";
             // 
             // processesList
             // 
@@ -206,9 +190,9 @@
             this.processesList.ForeColor = System.Drawing.Color.White;
             this.processesList.FormattingEnabled = true;
             this.processesList.ItemHeight = 24;
-            this.processesList.Location = new System.Drawing.Point(12, 168);
+            this.processesList.Location = new System.Drawing.Point(148, 127);
             this.processesList.Name = "processesList";
-            this.processesList.Size = new System.Drawing.Size(520, 264);
+            this.processesList.Size = new System.Drawing.Size(520, 312);
             this.processesList.TabIndex = 9;
             this.processesList.SelectedIndexChanged += new System.EventHandler(this.processesList_SelectedIndexChanged);
             // 
@@ -218,7 +202,7 @@
             this.nameLabel.BackColor = System.Drawing.Color.MidnightBlue;
             this.nameLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameLabel.ForeColor = System.Drawing.Color.White;
-            this.nameLabel.Location = new System.Drawing.Point(12, 141);
+            this.nameLabel.Location = new System.Drawing.Point(147, 102);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(58, 22);
             this.nameLabel.TabIndex = 4;
@@ -230,7 +214,7 @@
             this.memoryLabel.BackColor = System.Drawing.Color.MidnightBlue;
             this.memoryLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memoryLabel.ForeColor = System.Drawing.Color.White;
-            this.memoryLabel.Location = new System.Drawing.Point(208, 141);
+            this.memoryLabel.Location = new System.Drawing.Point(343, 102);
             this.memoryLabel.Name = "memoryLabel";
             this.memoryLabel.Size = new System.Drawing.Size(79, 22);
             this.memoryLabel.TabIndex = 10;
@@ -242,11 +226,138 @@
             this.listPIDLabel.BackColor = System.Drawing.Color.MidnightBlue;
             this.listPIDLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listPIDLabel.ForeColor = System.Drawing.Color.White;
-            this.listPIDLabel.Location = new System.Drawing.Point(457, 141);
+            this.listPIDLabel.Location = new System.Drawing.Point(592, 102);
             this.listPIDLabel.Name = "listPIDLabel";
             this.listPIDLabel.Size = new System.Drawing.Size(43, 22);
             this.listPIDLabel.TabIndex = 11;
             this.listPIDLabel.Text = "PID";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.MonitorButton);
+            this.panel1.Controls.Add(this.processesButton);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.menuListTitle);
+            this.panel1.Location = new System.Drawing.Point(6, 127);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(136, 180);
+            this.panel1.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(1, 137);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(129, 19);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "_______________";
+            // 
+            // MonitorButton
+            // 
+            this.MonitorButton.BackColor = System.Drawing.Color.MidnightBlue;
+            this.MonitorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonitorButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MonitorButton.ForeColor = System.Drawing.Color.White;
+            this.MonitorButton.Location = new System.Drawing.Point(27, 105);
+            this.MonitorButton.Name = "MonitorButton";
+            this.MonitorButton.Size = new System.Drawing.Size(77, 29);
+            this.MonitorButton.TabIndex = 8;
+            this.MonitorButton.Text = "Monitor";
+            this.MonitorButton.UseVisualStyleBackColor = false;
+            this.MonitorButton.Click += new System.EventHandler(this.MonitorButton_Click);
+            // 
+            // processesButton
+            // 
+            this.processesButton.BackColor = System.Drawing.Color.MidnightBlue;
+            this.processesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.processesButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.processesButton.ForeColor = System.Drawing.Color.White;
+            this.processesButton.Location = new System.Drawing.Point(27, 70);
+            this.processesButton.Name = "processesButton";
+            this.processesButton.Size = new System.Drawing.Size(77, 29);
+            this.processesButton.TabIndex = 7;
+            this.processesButton.Text = "Search";
+            this.processesButton.UseVisualStyleBackColor = false;
+            this.processesButton.Click += new System.EventHandler(this.processesButton_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(23, 48);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 19);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Monitoring";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(2, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 19);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "_______________";
+            // 
+            // menuListTitle
+            // 
+            this.menuListTitle.AutoSize = true;
+            this.menuListTitle.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.menuListTitle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuListTitle.ForeColor = System.Drawing.Color.White;
+            this.menuListTitle.Location = new System.Drawing.Point(28, 10);
+            this.menuListTitle.Name = "menuListTitle";
+            this.menuListTitle.Size = new System.Drawing.Size(71, 19);
+            this.menuListTitle.TabIndex = 4;
+            this.menuListTitle.Text = "ProcView";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.MidnightBlue;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(2, 310);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(116, 19);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Some processes";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.MidnightBlue;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(2, 332);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(122, 19);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "could have more ";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.MidnightBlue;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(2, 351);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(97, 19);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "than one PID";
             // 
             // Form1
             // 
@@ -254,13 +365,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(681, 461);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.listPIDLabel);
             this.Controls.Add(this.memoryLabel);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.processesList);
             this.Controls.Add(this.VersionLabel);
-            this.Controls.Add(this.searchButton);
-            this.Controls.Add(this.searchBar);
             this.Controls.Add(this.pidPanel);
             this.Controls.Add(this.memoryPanel);
             this.Controls.Add(this.processesLabel);
@@ -273,6 +386,8 @@
             this.memoryPanel.PerformLayout();
             this.pidPanel.ResumeLayout(false);
             this.pidPanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,8 +403,6 @@
         private System.Windows.Forms.Panel pidPanel;
         private System.Windows.Forms.Label pidLabel;
         private System.Windows.Forms.Label selectedPidLabel;
-        private System.Windows.Forms.TextBox searchBar;
-        private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label VersionLabel;
         private System.Windows.Forms.ListBox processesList;
         private System.Windows.Forms.ToolTip toolTip1;
@@ -297,6 +410,16 @@
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label memoryLabel;
         private System.Windows.Forms.Label listPIDLabel;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label menuListTitle;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button processesButton;
+        private System.Windows.Forms.Button MonitorButton;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }
 
